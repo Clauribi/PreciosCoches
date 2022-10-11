@@ -16,9 +16,9 @@ public class Car {
     @NotBlank(message = "Model is empty")
     private String model;
     @Positive(message = "Price is negative")
-    private int priceEuro;
+    private double priceEuro;
 
-    public Car(String numberPlate, String model, int priceEuro) {
+    public Car(String numberPlate, String model, double priceEuro) {
         this.numberPlate = numberPlate;
         this.model = model;
         this.priceEuro = priceEuro;
@@ -43,11 +43,11 @@ public class Car {
         this.model = model;
     }
 
-    public int getPriceEuro() {
+    public double getPriceEuro() {
         return priceEuro;
     }
 
-    public void setPriceEuro(int priceEuro) {
+    public void setPriceEuro(double priceEuro) {
         this.priceEuro = priceEuro;
     }
 }
