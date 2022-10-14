@@ -11,16 +11,16 @@ public class Currency {
     @Id
     @NotNull(message = "Date is null")
     @NotBlank(message = "Date is empty")
-    private String date;
+    private String fecha;
     @Positive(message = "Euro is negative")
     private double euro;
     @Positive(message = "Dollar is negative")
-    private static double dollar;
+    private double dollar;
     @Positive(message = "Pound is negative")
-    private  static double pound;
+    private double pound;
 
-    public Currency(String date, double euro, double dollar, double pound) {
-        this.date = date;
+    public Currency(String fecha, double euro, double dollar, double pound) {
+        this.fecha = fecha;
         this.euro = euro;
         this.dollar = dollar;
         this.pound = pound;
@@ -29,12 +29,12 @@ public class Currency {
     public Currency() {
     }
 
-    public String getDate() {
-        return date;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public double getEuro() {

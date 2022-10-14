@@ -20,12 +20,18 @@ public class CarOutput {
     @NotNull(message = "Number plate is null")
     @NotBlank(message = "Number plate is empty")
     private String date;
+    @Positive(message = "Dollar is negative")
+    private double priceDollar;
+    @Positive(message = "Pound is negative")
+    private double pricePound;
 
-    public CarOutput(String numberPlate, String model, double priceEuro, String date) {
+    public CarOutput(String numberPlate, String model, double priceEuro, String date, double priceDollar, double pricePound) {
         this.numberPlate = numberPlate;
         this.model = model;
         this.priceEuro = priceEuro;
         this.date = date;
+        this.priceDollar = priceDollar;
+        this.pricePound = pricePound;
     }
 
     public CarOutput() {
@@ -58,9 +64,24 @@ public class CarOutput {
     public String getDate() {
         return date;
     }
-
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public double getPriceDollar() {
+        return priceDollar;
+    }
+
+    public void setPriceDollar(double priceDollar) {
+        this.priceDollar = priceDollar;
+    }
+
+    public double getPricePound() {
+        return pricePound;
+    }
+
+    public void setPricePound(double pricePound) {
+        this.pricePound = pricePound;
     }
 }
 

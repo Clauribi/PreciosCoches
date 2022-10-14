@@ -12,12 +12,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 public class CarController {
 
     @Autowired
     private CarRepository carRepository;
+    @Autowired
     private CurrencyRepository currencyRepository;
 
     @PostMapping("/cars")
@@ -38,20 +40,18 @@ public class CarController {
     @GetMapping("/car/{date}/{numberPlate}")
     public ResponseEntity<CarOutput> getCarCurrency(@Valid @PathVariable String date, @PathVariable String numberPlate) {
         try {
-            if (!carRepository.existsByNumberPlate(numberPlate)) {
-                throw new CarNotExists("car not exists");
-            }else { Car car = carRepository.getReferenceById(numberPlate);
-                return ResponseEntity.ok(new CarOutput(numberPlate, car.getModel(), car.getPriceEuro(), date));
+            Optional<Car> car = carRepository.findById(numberPlate);
+            Optional<Currency> currency = currencyRepository.findById(date);
+            if (car.isPresent() && currency.isPresent()) {
+                CarOutput carOutput = new CarOutput(numberPlate, car.get().getModel(), car.get().getPriceEuro(), date, car.get().getPriceEuro() * currency.get().getDollar(), car.get().getPriceEuro() * currency.get().getPound());
+                return ResponseEntity.ok(carOutput);
             }
-        }catch (CarNotExists e){
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.notFound().build();
         }
-
-
-
+        return null;
     }
-
 
 
 }

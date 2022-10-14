@@ -17,11 +17,16 @@ public class Car {
     private String model;
     @Positive(message = "Price is negative")
     private double priceEuro;
+    @NotNull(message = "date is null")
+    @NotBlank(message = "date is empty")
+    private String dateCurrency;
 
-    public Car(String numberPlate, String model, double priceEuro) {
+
+    public Car(String numberPlate, String model, double priceEuro, String dateCurrency) {
         this.numberPlate = numberPlate;
         this.model = model;
         this.priceEuro = priceEuro;
+        this.dateCurrency = dateCurrency;
     }
 
     public Car() {
@@ -49,5 +54,13 @@ public class Car {
 
     public void setPriceEuro(double priceEuro) {
         this.priceEuro = priceEuro;
+    }
+
+    public String getDateCurrency() {
+        return dateCurrency;
+    }
+
+    public void setDateCurrency(String dateCurrency) {
+        this.dateCurrency = dateCurrency;
     }
 }
