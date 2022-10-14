@@ -5,7 +5,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
-import java.util.Date;
 
 @Entity(name="currency")
 public class Currency {
@@ -34,7 +33,7 @@ public class Currency {
         return date;
     }
 
-    public void setDateCurrency(String date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
