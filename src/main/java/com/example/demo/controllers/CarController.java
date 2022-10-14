@@ -2,7 +2,10 @@ package com.example.demo.controllers;
 
 import com.example.demo.domain.Car;
 import com.example.demo.domain.CarAlreadyExists;
+import com.example.demo.domain.CarNotExists;
+import com.example.demo.domain.Currency;
 import com.example.demo.repositories.CarRepository;
+import com.example.demo.repositories.CurrencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +18,7 @@ public class CarController {
 
     @Autowired
     private CarRepository carRepository;
+    private CurrencyRepository currencyRepository;
 
     @PostMapping("/cars")
     public ResponseEntity<String> addCar(@Valid @RequestBody Car car) {
@@ -30,8 +34,24 @@ public class CarController {
         }
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
     @GetMapping("/car/{date}/{numberPlate}")
-    public void getCarCurrency(@Valid @PathVariable String date, @PathVariable String numberPlate){
+    public ResponseEntity<CarOutput> getCarCurrency(@Valid @PathVariable String date, @PathVariable String numberPlate) {
+        try {
+            if (!carRepository.existsByNumberPlate(numberPlate)) {
+                throw new CarNotExists("car not exists");
+            }else { Car car = carRepository.getReferenceById(numberPlate);
+                return ResponseEntity.ok(new CarOutput(numberPlate, car.getModel(), car.getPriceEuro(), date));
+            }
+        }catch (CarNotExists e){
+            e.printStackTrace();
+            return ResponseEntity.notFound().build();
+        }
+
+
 
     }
+
+
+
 }

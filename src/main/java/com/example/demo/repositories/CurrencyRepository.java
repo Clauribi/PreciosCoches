@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 
 @Repository
-public interface CurrencyRepository extends JpaRepository<Currency, Date> {
+public interface CurrencyRepository extends JpaRepository<Currency, String> {
 }

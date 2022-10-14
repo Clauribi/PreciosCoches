@@ -15,9 +15,9 @@ public class Currency {
     @Positive(message = "Euro is negative")
     private double euro;
     @Positive(message = "Dollar is negative")
-    private double dollar;
+    private static double dollar;
     @Positive(message = "Pound is negative")
-    private double pound;
+    private  static double pound;
 
     public Currency(String date, double euro, double dollar, double pound) {
         this.date = date;
