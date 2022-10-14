@@ -5,16 +5,29 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
-    <changeSet id="1" author="clauribi">
+    <changeSet id="1" author="franraya">
         <sqlFile path="scripts/01_create_cars.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
     </changeSet>
-    <changeSet id="2" author="clauribi">
+
+    <changeSet id="2" author="franraya">
         <sqlFile path="scripts/02_create_currency.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
     </changeSet>
 
+    <changeSet id="3" author="franraya">
+        <sqlFile path="scripts/03_insert_currency_1.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="4" author="franraya">
+        <sqlFile path="scripts/04_insert_currency_2.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+    <changeSet id="5" author="franraya">
+        <sqlFile path="scripts/05_insert_currency_3.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+    <changeSet id="6" author="franraya">
+        <sqlFile path="scripts/06_insert_currency_4.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
 
 
 
 </databaseChangeLog>
-
 
