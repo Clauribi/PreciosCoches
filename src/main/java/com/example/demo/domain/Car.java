@@ -5,11 +5,10 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.Date;
 
 @Entity(name="cars")
 public class Car {
-    @NotNull(message = "Number plate is null")
-    @NotBlank(message = "Number plate is empty")
     @Id
     private String numberPlate;
     @NotNull(message = "Model is null")
@@ -19,10 +18,10 @@ public class Car {
     private double priceEuro;
     @NotNull(message = "date is null")
     @NotBlank(message = "date is empty")
-    private String dateCurrency;
+    private Date dateCurrency;
 
 
-    public Car(String numberPlate, String model, double priceEuro, String dateCurrency) {
+    public Car(String numberPlate, String model, double priceEuro, Date dateCurrency) {
         this.numberPlate = numberPlate;
         this.model = model;
         this.priceEuro = priceEuro;
@@ -56,11 +55,11 @@ public class Car {
         this.priceEuro = priceEuro;
     }
 
-    public String getDateCurrency() {
+    public Date getDateCurrency() {
         return dateCurrency;
     }
 
-    public void setDateCurrency(String dateCurrency) {
+    public void setDateCurrency(Date dateCurrency) {
         this.dateCurrency = dateCurrency;
     }
 }

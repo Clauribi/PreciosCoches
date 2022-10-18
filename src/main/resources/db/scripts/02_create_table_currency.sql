@@ -1,6 +1,6 @@
 create table currency(
-	fecha varchar(10) PRIMARY KEY,
+	fecha date PRIMARY KEY,
 	euro double NOT NULL,
-	dollar double,
-	pound double
+	dollar double NOT NULL,
+	pound double NOT NULL
 );

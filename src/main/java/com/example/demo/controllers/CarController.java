@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -38,7 +39,7 @@ public class CarController {
     }
 
     @GetMapping("/car/{date}/{numberPlate}")
-    public ResponseEntity<CarOutput> getCarCurrency(@Valid @PathVariable String date, @PathVariable String numberPlate) {
+    public ResponseEntity<CarOutput> getCarCurrency(@Valid @PathVariable Date date, @PathVariable String numberPlate) {
         try {
             Optional<Car> car = carRepository.findById(numberPlate);
             Optional<Currency> currency = currencyRepository.findById(date);

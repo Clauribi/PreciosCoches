@@ -5,13 +5,12 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.Date;
 
 @Entity(name="currency")
 public class Currency {
     @Id
-    @NotNull(message = "Date is null")
-    @NotBlank(message = "Date is empty")
-    private String fecha;
+    private Date fecha;
     @Positive(message = "Euro is negative")
     private double euro;
     @Positive(message = "Dollar is negative")
@@ -19,7 +18,7 @@ public class Currency {
     @Positive(message = "Pound is negative")
     private double pound;
 
-    public Currency(String fecha, double euro, double dollar, double pound) {
+    public Currency(Date fecha, double euro, double dollar, double pound) {
         this.fecha = fecha;
         this.euro = euro;
         this.dollar = dollar;
@@ -29,11 +28,11 @@ public class Currency {
     public Currency() {
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

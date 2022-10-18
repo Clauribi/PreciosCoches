@@ -6,10 +6,9 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.Date;
 
 public class CarOutput {
-    @NotNull(message = "Number plate is null")
-    @NotBlank(message = "Number plate is empty")
     @Id
     private String numberPlate;
     @NotNull(message = "Model is null")
@@ -19,13 +18,13 @@ public class CarOutput {
     private double priceEuro;
     @NotNull(message = "Number plate is null")
     @NotBlank(message = "Number plate is empty")
-    private String date;
+    private Date date;
     @Positive(message = "Dollar is negative")
     private double priceDollar;
     @Positive(message = "Pound is negative")
     private double pricePound;
 
-    public CarOutput(String numberPlate, String model, double priceEuro, String date, double priceDollar, double pricePound) {
+    public CarOutput(String numberPlate, String model, double priceEuro, Date date, double priceDollar, double pricePound) {
         this.numberPlate = numberPlate;
         this.model = model;
         this.priceEuro = priceEuro;
@@ -61,10 +60,10 @@ public class CarOutput {
         this.priceEuro = priceEuro;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
